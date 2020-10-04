@@ -1,0 +1,32 @@
+ <!-- Page Content -->
+ <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <app-side-bar></app-side-bar>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <app-carousel></app-carousel>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of arrayOne(4)">
+                <div class="card h-100">
+            <app-single-card></app-single-card>
+                </div>
+            </div>
+           
+        
+        </div>
+
+
+        
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
