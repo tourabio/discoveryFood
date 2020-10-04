@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-card.component.css']
 })
 export class SingleCardComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

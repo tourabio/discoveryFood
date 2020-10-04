@@ -7,6 +7,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { SingleCardComponent } from './single-card/single-card.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     SideBarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent implements OnInit {
-  pageSize :number =3;
+  p: number = 1;
   constructor() { }
   arrayOne(n: number): any[] {
     return Array(n);
