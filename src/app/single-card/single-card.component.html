@@ -1,19 +1,25 @@
-
-
-
-
       <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
       <div class="card-body">
-        <h4 class="card-title">
-          <a href="#">Item One</a>
+        <h4 class="card-title">    
+            <a href="#">{{product.title}}</a>  
         </h4>
-        <h5>$24.99</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+        <h5>${{product.price}}</h5>
+        <ng-container
+        *ngIf="product.quantity >0; then stock; else outstock">
+      </ng-container>
+
+
+
+      <p class="card-text"> 
+        <ng-template #stock><b>Quantity : </b>{{product.quantity}}</ng-template> 
+        <ng-template #outstock><div [ngStyle]="{color:'red'}">out of stock</div></ng-template>
+      </p>
+      
       </div>
       <div class="card-footer">
         <small class="text-muted">
-          <i class="fas fa-heart"></i>
-
+          <button (click)="incrementLike()"  class="btn btn-success">like  {{product.like}}</button>
+          <button [disabled]="product.quantity <=0" (click)="decrementQuantity()" class="btn btn-secondary">buy</button>
         </small>
       </div>
   

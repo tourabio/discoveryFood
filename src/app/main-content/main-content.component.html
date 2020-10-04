@@ -15,9 +15,12 @@
         <app-carousel></app-carousel>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of arrayOne(11)| paginate: { itemsPerPage: 6, currentPage: p }">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products| paginate: { itemsPerPage: 6, currentPage: p };let i=index">
                 <div class="card h-100">
-            <app-single-card></app-single-card>
+                
+            <app-single-card [product]="product"
+            [position]=i>
+          </app-single-card>
                 </div>
             </div>
             

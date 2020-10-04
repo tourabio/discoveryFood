@@ -8,7 +8,7 @@ import { SingleCardComponent } from './single-card/single-card.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { ProductService } from './services/product.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

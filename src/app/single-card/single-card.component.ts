@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from '../model/Product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-single-card',
@@ -6,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-card.component.css']
 })
 export class SingleCardComponent implements OnInit {
-  constructor() { }
-
+  @Input() product:Product;
+  @Input() position:number;
+  constructor(private productService:ProductService) { }
+  
+  
   ngOnInit(): void {
+    
   }
-
+  incrementLike(){
+    this.productService.incrementLike(this.position);
+  }
+  decrementQuantity(){
+    this.productService.decrementQuantity(this.position);
+  }
 }
