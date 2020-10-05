@@ -14,7 +14,7 @@ export class EditProductComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.product = new Product();
+    this.product = new Product(0,"",0,0);
   }
   onSubmit(form :NgForm){
     this.product.price = form.value['price'];

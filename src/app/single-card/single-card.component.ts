@@ -24,7 +24,6 @@ export class SingleCardComponent implements OnInit {
   buy(){
     this.productService.decrementQuantity(this.position);
     const myProduct = new Product(this.product.id,this.product.title,this.product.price,this.product.like);
-    console.log('myProduct : ',myProduct);
     this.shopCartService.addToCart(myProduct);
   }
   deleteProduct(){

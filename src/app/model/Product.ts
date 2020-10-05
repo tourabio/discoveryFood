@@ -1,4 +1,11 @@
 export class Product{
+    
+    id:number;
+    title:string;
+    price:number;
+    like:number;
+    quantity:number;
+
     constructor(id:number,title:string, price:number, like:number){
         this.id = id;
         this.title = title;
@@ -8,9 +15,4 @@ export class Product{
     }
 
 
-    id:number;
-    title:string;
-    price:number;
-    like:number;
-    quantity:number;
 }

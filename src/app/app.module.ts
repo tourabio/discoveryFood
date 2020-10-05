@@ -15,6 +15,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ShopCartService } from './services/shopCart.service';
+import { SingleShopCartComponent } from './single-shop-cart/single-shop-cart.component';
 const appRoutes:Routes=[
   {path:'products',component:MainContentComponent},
   {path:'add',component:EditProductComponent},
@@ -33,7 +34,8 @@ const appRoutes:Routes=[
     SideBarComponent,
     AboutComponent,
     EditProductComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    SingleShopCartComponent
   ],
   imports: [
     BrowserModule,

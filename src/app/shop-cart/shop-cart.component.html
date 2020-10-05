@@ -1,34 +1,37 @@
 <div class="container">
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+  <div class="container">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let product of products;let i=index">
+          <tr>
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{ product.price * product.quantity }}</td>
+            <td><button (click)="removeFromShop(i)"class="btn btn-danger">Remove</button></td>
+        <!--  <tr *ngFor="let product of products;let i=index">
+             <app-single-shop-cart [product]="product"
+            [position]=i
+            >
+          </app-single-shop-cart>
+        -->  
+        </tr>
+            
+          </tbody>
+
+         
+
+
+        </table>
+        <h2>Total Price = {{totalPrice}} DT</h2>
+  </div>
 </div>
