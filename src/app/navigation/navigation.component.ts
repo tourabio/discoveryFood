@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ShopCartService } from '../services/shopCart.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  currentCart :any [];
+  cartSubscription : Subscription;
+  constructor(private shopCartService:ShopCartService) { 
   }
 
-}
+  ngOnInit(): void {
+    this.cartSubscription = this.shopCartService.shopCartSubject.subscribe(
+      (products:any[])=>{
+        this.currentCart = products;
+      }
+    );
+    this.shopCartService.emitShopCartSubject();
+  }
+  
+  }
+
+
+
+

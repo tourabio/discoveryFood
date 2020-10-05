@@ -19,7 +19,8 @@
       <div class="card-footer">
         <small class="text-muted">
           <button (click)="incrementLike()"  class="btn btn-success">like  {{product.like}}</button>
-          <button [disabled]="product.quantity <=0" (click)="decrementQuantity()" class="btn btn-secondary">buy</button>
+          <button [disabled]="product.quantity <=0" (click)="buy()" class="btn btn-secondary">buy</button>
+          <button (click)="deleteProduct()"class="btn btn-danger">delete</button>
         </small>
       </div>
   

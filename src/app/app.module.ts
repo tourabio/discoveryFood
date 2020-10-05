@@ -9,6 +9,20 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductService } from './services/product.service';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { FormsModule } from '@angular/forms';
+import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { ShopCartService } from './services/shopCart.service';
+const appRoutes:Routes=[
+  {path:'products',component:MainContentComponent},
+  {path:'add',component:EditProductComponent},
+  {path:'about',component:AboutComponent},
+  {path:'shopCart',component:ShopCartComponent},
+  {path:'',component:MainContentComponent},
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,14 +30,20 @@ import { ProductService } from './services/product.service';
     MainContentComponent,
     SingleCardComponent,
     CarouselComponent,
-    SideBarComponent
+    SideBarComponent,
+    AboutComponent,
+    EditProductComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgxPaginationModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    ProductService
+    ProductService,
+    ShopCartService
   ],
   bootstrap: [AppComponent]
 })
