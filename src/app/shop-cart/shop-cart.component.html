@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="container">
-      <table class="table table-striped">
+  <div class="container" >
+    <div id="content">
+      <table class="table table-striped" id="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -10,6 +11,7 @@
               <th scope="col">Total</th>
             </tr>
           </thead>
+
           <tbody *ngFor="let product of products;let i=index">
           <tr>
             <th scope="row">{{product.id}}</th>
@@ -17,7 +19,7 @@
             <td>{{product.price}}</td>
             <td>{{product.quantity}}</td>
             <td>{{ product.price * product.quantity }}</td>
-            <td><button (click)="removeFromShop(i)"class="btn btn-danger">Remove</button></td>
+            <td id="btnRemove"><button (click)="removeFromShop(i)"class="btn btn-danger">Remove</button></td>
         <!--  <tr *ngFor="let product of products;let i=index">
              <app-single-shop-cart [product]="product"
             [position]=i
@@ -33,5 +35,8 @@
 
         </table>
         <h2>Total Price = {{totalPrice}} DT</h2>
-  </div>
+      </div>
+        <button (click)="downloadPdf()" class="btn btn-primary">Finish and Download PDF</button>
+      </div>
+
 </div>
