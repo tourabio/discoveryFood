@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from '../model/Product';
 import { ShopCartService } from '../services/shopCart.service';
@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './shop-cart.component.html',
   styleUrls: ['./shop-cart.component.css']
 })
-export class ShopCartComponent implements OnInit {
+export class ShopCartComponent implements OnInit,OnDestroy  {
 
   shopSubscription : Subscription;
   products:Product[];
   totalPrice:number;
   constructor(private shopCartService:ShopCartService,
     private router:Router) { }
-
+    
   ngOnInit(): void {
     this.shopSubscription = this.shopCartService.shopCartSubject.subscribe(
       (products:any[])=>{
@@ -31,6 +31,9 @@ export class ShopCartComponent implements OnInit {
       this.totalPrice += product.price*product.quantity ;
     });
     
+  }
+
+  ngOnDestroy(){
   }
 
 
@@ -59,7 +62,6 @@ export class ShopCartComponent implements OnInit {
 
     $('#table tr').each(function(){
       $(this).children('td').eq(4).remove();
-      console.log($(this).children('td').eq(4));
   });
 
     var element = document.getElementById("content");
@@ -73,7 +75,13 @@ export class ShopCartComponent implements OnInit {
       var imgHeight = canvas.height* 208/canvas.width;
       doc.addImage(imgData,0,0,208,imgHeight);
       doc.save("bill.pdf");
-    })
+    });
+
+
+
+    this.totalPrice = 0;
+    this.shopCartService.removeAll(); 
+
 
     this.router.navigate(['/products']);
 

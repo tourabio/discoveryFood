@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 import { Product } from '../model/Product';
-
+import * as $ from 'jquery'
 export class ShopCartService{
     shopCartSubject = new Subject<any[]>();
     private listProductCart:Product[];
@@ -41,6 +41,10 @@ export class ShopCartService{
   removeProduct(i:number){
     //this.totalPrice-=this.listProductCart[i].price*this.listProductCart[i].quantity;
     this.listProductCart.splice(i, 1);
+    this.emitShopCartSubject();
+  }
+  removeAll(){
+    this.listProductCart = [];
     this.emitShopCartSubject();
   }
   
