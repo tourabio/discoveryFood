@@ -5,6 +5,7 @@ import { ShopCartService } from '../services/shopCart.service';
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -17,6 +18,7 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
   products:Product[];
   totalPrice:number;
   constructor(private shopCartService:ShopCartService,
+    private productService:ProductService,
     private router:Router) { }
     
   ngOnInit(): void {
@@ -48,7 +50,9 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
 
   removeFromShop(i:number){
     this.totalPrice-=this.products[i].quantity*this.products[i].price;
+    this.productService.addQuantity(this.products[i].id,this.products[i].quantity);
     this.shopCartService.removeProduct(i);
+    
   }
 
    

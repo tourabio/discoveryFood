@@ -1,6 +1,63 @@
 <h1 class="my-4">E-commerce</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
+<h5 class="card-title">Price range</h5>
+	<label for="range">MIN : {{rangeValueMin}}</label>	
+  <input type="range" class="custom-range" min="0" max="100" name="range" [(ngModel)]="rangeValueMin">
+  <label for="range">MAX : {{rangeValuemax}}</label>	
+  <input type="range" class="custom-range" min="{{rangeValueMin}}" max="100" name="range" [(ngModel)]="rangeValuemax">
+
+
+<section>
+
+  <h5 class="card-title">Size</h5>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input filled-in" id="341">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="341">34</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input filled-in" id="361">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="361">36</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input filled-in" id="381">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="381">38</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input filled-in" id="401">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="401">40</label>
+  </div>
+  <a class="btn btn-link text-muted p-0 waves-effect waves-light" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    More
+  </a>
+  <div class="collapse" id="collapseExample">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input filled-in" id="421">
+      <label class="form-check-label small text-uppercase card-link-secondary" for="421">42</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input filled-in" id="441">
+      <label class="form-check-label small text-uppercase card-link-secondary" for="441">44</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input filled-in" id="461">
+      <label class="form-check-label small text-uppercase card-link-secondary" for="461">46</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input filled-in" id="501">
+      <label class="form-check-label small text-uppercase card-link-secondary" for="501">50</label>
+    </div>
+  </div>
+
+</section>
+
+<h5 class="card-title">Colors</h5>
+<a href=""><span class="dot" style="background-color: red;"></span></a>&nbsp;
+<a href=""><span class="dot"style="background-color: blue;"></span></a>&nbsp;
+<a href=""><span class="dot"style="background-color: green;"></span></a>&nbsp;
+<a href=""><span class="dot"style="background-color: black;"></span></a>&nbsp;
+
+
+<br>
+<br>
+
+<button class="btn btn-block btn-primary">Apply</button>

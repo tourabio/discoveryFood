@@ -58,7 +58,17 @@ export class ProductService{
 
     }    
 
-     
+    addQuantity(id:number,qtt:number){
+
+      for(let i=0;i<this.listProduct.length;i++){
+        if(this.listProduct[i].id == id){
+          this.listProduct[i].quantity+=qtt;
+          break;
+        }
+      }
+      this.emitProductSubject();
+      
+    }
     
 
 
