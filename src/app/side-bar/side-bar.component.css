@@ -4,3 +4,14 @@
     border-radius: 50%;
     display: inline-block;
   }
+
+  
+  #brand { 
+    color: #741909; 
+    font-family: "Great Vibes", cursive;
+     font-size: 40px;
+      line-height: 35px;
+       font-weight: normal;
+        margin-bottom: 0px;
+        text-align: center;
+         text-shadow: 0 1px 1px #fff; }

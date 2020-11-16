@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { FoodService } from '../services/food.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -9,21 +10,21 @@ import { ProductService } from '../services/product.service';
 })
 export class MainContentComponent implements OnInit {
   p: number 
-  productSubscription : Subscription ;
+  foodSubscription : Subscription ;
 
-  constructor(private productService :ProductService) { }
-  products:any[];
+  constructor(private foodService :FoodService) { }
+  foods:any[];
   arrayOne(n: number): any[] {
     return Array(n);
   }
   ngOnInit(): void {
     this.p = 1;
-    this.productSubscription = this.productService.productSubject.subscribe(
-      (products:any[])=>{
-        this.products = products;
+    this.foodSubscription = this.foodService.foodSubject.subscribe(
+      (foods:any[])=>{
+        this.foods = foods;
       }
     );
-    this.productService.emitProductSubject();
+    this.foodService.emitFoodSubject();
   }
  
 }

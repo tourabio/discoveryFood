@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../model/Product';
-import { ProductService } from '../services/product.service';
+import { FoodService } from '../services/food.service';
 import { ShopCartService } from '../services/shopCart.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { ShopCartService } from '../services/shopCart.service';
   styleUrls: ['./single-card.component.css']
 })
 export class SingleCardComponent implements OnInit {
-  @Input() product:Product;
+  @Input() food:Product;
   @Input() position:number;
-  constructor(private productService:ProductService,
+  constructor(private foodService:FoodService,
     private shopCartService:ShopCartService) { }
   
   
@@ -19,14 +19,13 @@ export class SingleCardComponent implements OnInit {
     
   }
   incrementLike(){
-    this.productService.incrementLike(this.position);
+    this.foodService.incrementLike(this.position);
   }
   buy(){
-    this.productService.decrementQuantity(this.position);
-    const myProduct = new Product(this.product.id,this.product.title,this.product.price,this.product.like);
-    this.shopCartService.addToCart(myProduct);
+    this.foodService.incrementQuantity(this.position);
+    this.shopCartService.addToCart(this.food);
   }
-  deleteProduct(){
-    this.productService.deleteProduct(this.position);
+  deleteFood(){
+    this.foodService.deleteFood(this.position);
   }
 }

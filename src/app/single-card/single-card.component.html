@@ -1,26 +1,22 @@
       <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
       <div class="card-body">
         <h4 class="card-title">    
-            <a href="#">{{product.title}}</a>  
+            <a href="#">{{food.name}}</a>  
         </h4>
-        <h5>${{product.price}}</h5>
-        <ng-container
-        *ngIf="product.quantity >0; then stock; else outstock">
-      </ng-container>
-
-
-
+        <h5>${{food.price}}</h5>
       <p class="card-text"> 
-        <ng-template #stock><b>Quantity : </b>{{product.quantity}}</ng-template> 
-        <ng-template #outstock><div [ngStyle]="{color:'red'}">out of stock</div></ng-template>
+        description : {{food.description}} 
+      </p>
+      <p class="card-text"> 
+        quantity : {{food.quantity}} 
       </p>
       
       </div>
       <div class="card-footer">
         <small class="text-muted">
-          <button (click)="incrementLike()"  class="btn btn-success">like  {{product.like}}</button>
-          <button [disabled]="product.quantity <=0" (click)="buy()" class="btn btn-secondary">buy</button>
-          <button (click)="deleteProduct()"class="btn btn-danger">delete</button>
+          <button (click)="incrementLike()"  class="btn btn-success">like  {{food.like}}</button>
+          <button (click)="buy()" class="btn btn-secondary">buy</button>
+          <button (click)="deleteFood()"class="btn btn-danger">delete</button>
         </small>
       </div>
   

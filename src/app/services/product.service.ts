@@ -36,6 +36,7 @@ export class ProductService{
     affAllProducts(){     
           return this.listProduct;
     }
+    
     incrementLike(i:number){
       this.listProduct[i].like++;
       this.emitProductSubject();
