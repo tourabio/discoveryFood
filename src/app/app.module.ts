@@ -17,15 +17,10 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ShopCartService } from './services/shopCart.service';
 import { SingleShopCartComponent } from './single-shop-cart/single-shop-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppRoutingModule } from './app-routing.module';
 
 
-const appRoutes:Routes=[
-  {path:'products',component:MainContentComponent},
-  {path:'add',component:EditProductComponent},
-  {path:'about',component:AboutComponent},
-  {path:'shopCart',component:ShopCartComponent},
-  {path:'',component:MainContentComponent},
-]
+
 
 @NgModule({
   declarations: [
@@ -45,7 +40,7 @@ const appRoutes:Routes=[
     FormsModule,
     FontAwesomeModule,
     NgxPaginationModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
   ],
   providers: [
     ProductService,
