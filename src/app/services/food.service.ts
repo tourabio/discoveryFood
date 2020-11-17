@@ -16,7 +16,7 @@ export class FoodService {
         id:1,
         name:"name",
         quantity:1,
-        type:"break fast",
+        type:"breakfast",
         description:"description",
         image:"image",
         price:20,
