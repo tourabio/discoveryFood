@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FoodService } from '../services/food.service';
-import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-main-content',
@@ -26,5 +25,9 @@ export class MainContentComponent implements OnInit {
     );
     this.foodService.emitFoodSubject();
   }
- 
+
+  incrementLike(pos:number){
+    this.foodService.incrementLike(pos);
+  }
+
 }

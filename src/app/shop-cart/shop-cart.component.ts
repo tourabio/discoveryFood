@@ -1,11 +1,11 @@
 import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from '../model/Product';
 import { ShopCartService } from '../services/shopCart.service';
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
-import { ProductService } from '../services/product.service';
+import { Food } from '../model/Food';
+import { FoodService } from '../services/food.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -15,22 +15,24 @@ import { ProductService } from '../services/product.service';
 export class ShopCartComponent implements OnInit,OnDestroy  {
 
   shopSubscription : Subscription;
-  products:Product[];
+  foods:Food[];
   totalPrice:number;
   constructor(private shopCartService:ShopCartService,
-    private productService:ProductService,
+    private foodService:FoodService,
     private router:Router) { }
     
   ngOnInit(): void {
     this.shopSubscription = this.shopCartService.shopCartSubject.subscribe(
       (products:any[])=>{
-        this.products = products;
+        this.foods = products;
       }
     );
     this.shopCartService.emitShopCartSubject();
+
     this.totalPrice = 0;
-    this.products.forEach(product => {
-      this.totalPrice += product.price*product.quantity ;
+
+    this.foods.forEach(food => {
+      this.totalPrice += food.price*food.quantity ;
     });
     
   }
@@ -40,19 +42,10 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
 
 
   
-
-
-
-
-
-
-
-
   removeFromShop(i:number){
-    this.totalPrice-=this.products[i].quantity*this.products[i].price;
-    this.productService.addQuantity(this.products[i].id,this.products[i].quantity);
-    this.shopCartService.removeProduct(i);
-    
+    this.totalPrice-=this.foods[i].quantity*this.foods[i].price;
+    this.foodService.resetQuantity(this.foods[i].id);
+    this.shopCartService.removeFood(i);
   }
 
    
@@ -81,13 +74,18 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
       doc.save("bill.pdf");
     });
 
-
+    this.foods.forEach(food => {
+      this.foodService.resetQuantity(food.id);
+    });
 
     this.totalPrice = 0;
     this.shopCartService.removeAll(); 
 
 
     this.router.navigate(['/products']);
+    
+    
+    
 
 
   }

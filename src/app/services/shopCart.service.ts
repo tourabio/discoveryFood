@@ -1,45 +1,50 @@
 import { Subject } from 'rxjs';
-import { Product } from '../model/Product';
 import * as $ from 'jquery'
+import { Food } from '../model/Food';
 export class ShopCartService{
     shopCartSubject = new Subject<any[]>();
-    private listProductCart:Product[];
+    private listFoodCart:Food[];
   
     constructor() {
-      this.listProductCart=[
+      this.listFoodCart=[
       ];
     }
     emitShopCartSubject(){
-      this.shopCartSubject.next(this.listProductCart.slice());
+      this.shopCartSubject.next(this.listFoodCart.slice());
     }
    
     affAllCarts(){   
-        return this.listProductCart;
+        return this.listFoodCart;
   }
 
-  addToCart(p:Product){
+  addToCart(p:Food){
      var x:number = -1;
-    for (let i = 0; i < this.listProductCart.length; i++) {
-      if(this.listProductCart[i].id==p.id){
+    for (let i = 0; i < this.listFoodCart.length; i++) {
+      if(this.listFoodCart[i].id==p.id){
         x=i;
         break;
       }
     }
     if(x==-1){
-    this.listProductCart.push(p);
+    this.listFoodCart.push(p);
   }else{
-    this.listProductCart[x].quantity++;
+    this.listFoodCart[x].quantity++;
     
   }
     this.emitShopCartSubject();
     
   }  
-  removeProduct(i:number){
-    this.listProductCart.splice(i, 1);
+
+
+  removeFood(i:number){
+    this.listFoodCart.splice(i, 1);
     this.emitShopCartSubject();
   }
+
+
+
   removeAll(){
-    this.listProductCart = [];
+    this.listFoodCart = [];
     this.emitShopCartSubject();
   }
   

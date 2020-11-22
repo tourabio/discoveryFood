@@ -14,7 +14,19 @@ export class FoodService {
     this.listFood = [
       {
         id:1,
-        name:"name",
+        name:"name1",
+        quantity:1,
+        type:"breakfast",
+        description:"description",
+        image:"image",
+        price:20,
+        country:"country",
+        livraison:true,
+        like:4
+      },
+      {
+        id:2,
+        name:"name2",
         quantity:1,
         type:"breakfast",
         description:"description",
@@ -24,12 +36,13 @@ export class FoodService {
         livraison:true,
         like:4
       }
+
     
 
 
 
     ];
-
+    this.emitFoodSubject();
 
    }
    emitFoodSubject(){
@@ -46,7 +59,14 @@ export class FoodService {
   incrementQuantity(i:number){
     this.listFood[i].quantity++;
     this.emitFoodSubject();
+  }
 
+  
+  resetQuantity(id:number){
+    this.listFood.forEach(food => {
+      if(food.id == id){food.quantity = 1;}
+    });
+    this.emitFoodSubject();
   }
   deleteFood(i:number){
     this.listFood.splice(i, 1);  
