@@ -1,0 +1,19 @@
+a{
+    font-size: 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#thumbsUp{
+    color: rgb(18, 85, 228);
+    
+}
+#shoppingbasket{
+    color: rgb(15, 156, 69);
+}
+#edit{
+    color: rgb(36, 41, 41);
+}
+#delete{
+    color: red;
+}

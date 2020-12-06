@@ -1,5 +1,5 @@
  <!-- Page Content -->
- <div class="container">
+
 
     <div class="row">
 
@@ -19,7 +19,7 @@
                 <div class="card h-100">
                 
             <app-single-card [food]="food"
-            [position]=i (notifLike)="incrementLike($event)">
+            [position]=i  (notifdelete)="deleteFood($event)" (notifLike)="incrementLike($event)">
           </app-single-card>
                 </div>
             </div>
@@ -30,6 +30,7 @@
 
         
         <!-- /.row -->
+        <div style="text-align: center;">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
-      </div>
-      <!-- /.col-lg-9 -->
+        </div>
+     

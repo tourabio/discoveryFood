@@ -1,5 +1,6 @@
 <h1 class="my-4" id="brand">Discovery Food</h1>
 <h5 class="card-title">Price range</h5>
+
 	<label for="range">MIN : {{rangeValueMin}}</label>	
   <input type="range" class="custom-range" min="0" max="100" name="range" [(ngModel)]="rangeValueMin">
   <label for="range">MAX : {{rangeValuemax}}</label>	
@@ -11,26 +12,42 @@
   <h5 class="card-title">Type</h5>
 
   <div class="form-check">
-    <input type="checkbox" class="form-check-input filled-in" id="breakfast">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="breakfast">breakfast</label>
+    <input (click)="searchByType('all')" class="form-check-input" type="radio" name="exampleRadios" id="all" value="all" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      All
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input (click)="searchByType('breakfast')" class="form-check-input" type="radio" name="exampleRadios" id="breakfast" value="breakfast">
+    <label class="form-check-label" for="exampleRadios1">
+      Breakfast
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input (click)="searchByType('lunch')" class="form-check-input" type="radio" name="exampleRadios" id="lunch" value="lunch">
+    <label class="form-check-label" for="exampleRadios2">
+      Lunch
+    </label>
   </div>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input filled-in" id="lunch">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="lunch">lunch</label>
+    <input (click)="searchByType('dinner')" class="form-check-input" type="radio" name="exampleRadios" id="dinner" value="dinner">
+    <label class="form-check-label" for="exampleRadios2">
+      Dinner
+    </label>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input filled-in" id="dinner">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="dinner">dinner</label>
-  </div>
+
 </section>
 
+
 <h5 class="card-title">Countries</h5>
-<a href="#"><img src="assets/images/germany.PNG" alt="germanFood" height="50px" width="50px"></a>&nbsp;
-<a href="#"><img src="assets/images/polish.PNG" alt="polishFood" height="50px" width="50px"></a>&nbsp;
-<a href="#"><img src="assets/images/france.PNG" alt="frenshFood" height="50px" width="50px"></a>&nbsp;
-<a href="#"><img src="assets/images/italy.PNG" alt="italianFood" height="50px" width="50px"></a>&nbsp;
-<a href="#"><img src="assets/images/japan.PNG" alt="japaneseFood" height="50px" width="50px"></a>&nbsp;
-<a href="#"><img src="assets/images/spain.PNG" alt="spanishFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('germany')"><img src="assets/images/germany.PNG" alt="germanFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('poland')"><img src="assets/images/polish.PNG" alt="polishFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('france')"><img src="assets/images/france.PNG" alt="frenshFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('italy')"><img src="assets/images/italy.PNG" alt="italianFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('japan')"><img src="assets/images/japan.PNG" alt="japaneseFood" height="50px" width="50px"></a>&nbsp;
+<a (click)="searchByCountry('spain')"><img src="assets/images/spain.PNG" alt="spanishFood" height="50px" width="50px"></a>&nbsp;
 
 
 
@@ -38,3 +55,4 @@
 <br>
 
 <button class="btn btn-block btn-primary">Apply</button>
+<button (click)="resetSearch()"class="btn btn-block btn-secondary">Reset</button>

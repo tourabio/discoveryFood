@@ -10,12 +10,12 @@ import { FoodService } from '../services/food.service';
 export class MainContentComponent implements OnInit {
   p: number 
   foodSubscription : Subscription ;
-
-  constructor(private foodService :FoodService) { }
   foods:any[];
-  arrayOne(n: number): any[] {
-    return Array(n);
-  }
+  constructor(private foodService :FoodService) { }
+  
+
+ 
+
   ngOnInit(): void {
     this.p = 1;
     this.foodSubscription = this.foodService.foodSubject.subscribe(
@@ -28,6 +28,10 @@ export class MainContentComponent implements OnInit {
 
   incrementLike(pos:number){
     this.foodService.incrementLike(pos);
+  }
+
+  deleteFood(pos:number){
+    this.foodService.deleteFood(pos);
   }
 
 }

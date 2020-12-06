@@ -1,6 +1,21 @@
 
+a {
+  cursor: pointer;
+}
+a:active {
+  opacity: 0.5;
+}
 
-  
+
+
+
+
+
+
+
+
+
+
   #brand { 
     color: #741909; 
     font-family: "Great Vibes", cursive;
@@ -11,6 +26,7 @@
         text-align: center;
          text-shadow: 0 1px 1px #fff; }
 
+         
 
 
      

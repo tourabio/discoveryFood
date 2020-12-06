@@ -1,6 +1,10 @@
 import { Subject } from 'rxjs';
 import * as $ from 'jquery'
 import { Food } from '../model/Food';
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
 export class ShopCartService{
     shopCartSubject = new Subject<any[]>();
     private listFoodCart:Food[];
@@ -8,6 +12,7 @@ export class ShopCartService{
     constructor() {
       this.listFoodCart=[
       ];
+      
     }
     emitShopCartSubject(){
       this.shopCartSubject.next(this.listFoodCart.slice());

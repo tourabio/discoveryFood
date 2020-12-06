@@ -8,16 +8,14 @@ import { SingleCardComponent } from './single-card/single-card.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ProductService } from './services/product.service';
-import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ShopCartService } from './services/shopCart.service';
-import { SingleShopCartComponent } from './single-shop-cart/single-shop-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthComponent } from './auth/auth.component';
+import { EditFoodComponent } from './edit-food/edit-food.component';
 
 
 
@@ -31,9 +29,9 @@ import { AppRoutingModule } from './app-routing.module';
     CarouselComponent,
     SideBarComponent,
     AboutComponent,
-    EditProductComponent,
     ShopCartComponent,
-    SingleShopCartComponent
+    AuthComponent,
+    EditFoodComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,10 +40,7 @@ import { AppRoutingModule } from './app-routing.module';
     NgxPaginationModule,
     AppRoutingModule,
   ],
-  providers: [
-    ProductService,
-    ShopCartService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

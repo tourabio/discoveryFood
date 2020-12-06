@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { faEdit, faShoppingBasket, faThumbsUp, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 import { Food } from '../model/Food';
-import { Product } from '../model/Product';
+import { AuthService } from '../services/auth.service';
 import { FoodService } from '../services/food.service';
 import { ShopCartService } from '../services/shopCart.service';
 
@@ -13,22 +15,36 @@ export class SingleCardComponent implements OnInit {
   @Input() food:Food;
   @Input() position:number;
   @Output() notifLike = new EventEmitter<number>();
+  @Output() notifdelete = new EventEmitter<number>();
+  authSubscription : Subscription;
+  isAuth:boolean;
+  FathumbsUp = faThumbsUp;
+  shoppingbasket = faShoppingBasket;
+  edit = faEdit;
+  delete=faTrashAlt
   constructor(private foodService:FoodService,
-    private shopCartService:ShopCartService) { }
+    private shopCartService:ShopCartService,
+    private authService:AuthService) { }
   
   
   ngOnInit(): void {
-    
+    this.authSubscription = this.authService.authSubject.subscribe(
+      (auth)=>{
+        this.isAuth = auth;
+      }
+    );
+    this.authService.emitAuthSubject();
+
+
+
   }
   sendNotifIncrementLike(){
     this.notifLike.emit(this.position);
-    //this.foodService.incrementLike(this.position);
   }
   buy(){
-    this.foodService.incrementQuantity(this.position);
     this.shopCartService.addToCart(this.food);
   }
   deleteFood(){
-    this.foodService.deleteFood(this.position);
+    this.notifdelete.emit(this.position);
   }
 }

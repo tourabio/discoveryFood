@@ -23,8 +23,8 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
     
   ngOnInit(): void {
     this.shopSubscription = this.shopCartService.shopCartSubject.subscribe(
-      (products:any[])=>{
-        this.foods = products;
+      (foods:any[])=>{
+        this.foods = foods;
       }
     );
     this.shopCartService.emitShopCartSubject();
@@ -82,7 +82,7 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
     this.shopCartService.removeAll(); 
 
 
-    this.router.navigate(['/products']);
+    this.router.navigate(['/foods']);
     
     
     

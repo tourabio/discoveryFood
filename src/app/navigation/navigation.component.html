@@ -13,13 +13,13 @@
             </a>
           </li>
           <li class="nav-item" >
-            <a class="nav-link" routerLink="add">AddProduct</a>
-          </li>
-          <li class="nav-item" >
             <a class="nav-link" routerLink="about">About</a>
           </li>
-          <li class="nav-item" >
-            <a class="nav-link" routerLink="">Services</a>
+          <li class="nav-item" *ngIf="!isAuth">
+            <a class="nav-link" routerLink="auth">Admin</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuth">
+            <a class="nav-link" routerLink="add">AddFood</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="">Contact</a>
@@ -36,6 +36,7 @@
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <button *ngIf="isAuth" button class="btn btn-danger" (click)="logOut()">Logout</button>
       </form>
     </div>
   </nav>

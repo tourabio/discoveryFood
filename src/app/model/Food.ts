@@ -10,4 +10,9 @@ export class Food{
     livraison:boolean;
     like:number;
 
+    constructor() {
+        this.quantity = 1;
+        this.like = 0;
+        this.image = "";
+    };
 }

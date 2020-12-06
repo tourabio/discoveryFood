@@ -11,16 +11,21 @@ export class FoodService {
 
 
   constructor() {
+    this.loadFoods();
+    
+   }
+
+   loadFoods(){
     this.listFood = [
       {
         id:1,
         name:"name1",
         quantity:1,
-        type:"breakfast",
+        type:"lunch",
         description:"description",
         image:"image",
         price:20,
-        country:"country",
+        country:"france",
         livraison:true,
         like:4
       },
@@ -32,24 +37,31 @@ export class FoodService {
         description:"description",
         image:"image",
         price:20,
-        country:"country",
+        country:"spain",
         livraison:true,
         like:4
       }
-
-    
-
-
-
     ];
-    this.emitFoodSubject();
 
+    this.emitFoodSubject();
    }
+
+
+
+
+
+
+
+
    emitFoodSubject(){
     this.foodSubject.next(this.listFood.slice());
   }
-  affAllFoods(){     
-        return this.listFood;
+
+
+
+  affAllFoods(){   
+    this.loadFoods();
+    return this.listFood;
   }
 
   incrementLike(i:number){
@@ -79,5 +91,20 @@ export class FoodService {
     this.emitFoodSubject();
 
   } 
+  updateFood(editedfood){
+    this.listFood.forEach(food => {
+      if(food.id == editedfood.id){
+        food = editedfood;
+      }
+    });
+  }
+
+  getFoodById(index:number){
+    return this.listFood.find(x=>x.id===index);
+}
+setFoods(foods:Food[]){
+  this.listFood = foods;
+  this.emitFoodSubject();
+}
 
 }
