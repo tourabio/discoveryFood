@@ -7,15 +7,19 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EditFoodComponent } from './edit-food/edit-food.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const ROUTES:Routes=[
   {path:'',redirectTo:"/foods",pathMatch:"full"},
   {path:'foods',/* canActivate: [AuthGuardService],*/component:MainContentComponent},
   { path: 'auth', component: AuthComponent },
   {path:'about',component:AboutComponent},
-  {path:'add',component:EditFoodComponent},
-  {path:'foods/edit/:id',component:EditFoodComponent},
+  {path:'add',canActivate: [AuthGuardService],component:EditFoodComponent},
+  {path:'foods/edit/:id',canActivate: [AuthGuardService],component:EditFoodComponent},
   {path:'shopCart',component:ShopCartComponent},
+  {path:'**',component:PageNotFoundComponent},
+
+  
   
 ]
 

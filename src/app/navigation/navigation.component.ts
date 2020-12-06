@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -16,7 +17,10 @@ export class NavigationComponent implements OnInit {
   cartSubscription : Subscription;
   authSubscription : Subscription;
   constructor(private shopCartService:ShopCartService,
-    private authService:AuthService) { 
+    private authService:AuthService,
+    private router: Router
+
+    ) { 
   }
 
   ngOnInit(): void {
@@ -41,6 +45,7 @@ export class NavigationComponent implements OnInit {
   }
   logOut(){
     this.authService.signOut();
+    this.router.navigate(['foods']);
   }
   
   }

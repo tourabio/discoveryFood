@@ -1,3 +1,52 @@
 <h2>Authentification</h2>
+
+<div class="alert alert-danger"*ngIf="!correctFields">
+        *Username or password incorrect ! 
+        </div>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSignIn()">
+    <div class="form-group">
+        <label>UserName:</label>
+        <input type="text" class="form-control" formControlName="username">
+        <div class="alert alert-danger"*ngIf="username.errors && username.touched">
+            *UserName is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" formControlName="password">
+        <div class="alert alert-danger"*ngIf="password.errors && password.touched">
+            <div *ngIf="password.hasError('required')">*Password is required</div>
+            <div *ngIf="password.hasError('pattern')">*Password invalid pattern => must contains :
+                <ul>
+                <li>
+                    At least 8 characters in length
+                </li>
+                <li>
+                    Lowercase letters
+                </li>
+                <li>
+                    Uppercase letters
+                </li>
+                <li>Numbers</li>
+                <li>Special characters</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"[disabled]="registerForm.invalid">LogIn</button>&nbsp;
+    <div class="spinner-border text-success" role="status" *ngIf="authStatus">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </form>
+
+
+
+
+<!--
 <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
+-->
+<!--
 <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+-->

@@ -19,11 +19,11 @@ export class FoodService {
     this.listFood = [
       {
         id:1,
-        name:"name1",
+        name:"brik",
         quantity:1,
         type:"lunch",
         description:"description",
-        image:"image",
+        image:"brik.jpg",
         price:20,
         country:"france",
         livraison:true,
@@ -31,11 +31,11 @@ export class FoodService {
       },
       {
         id:2,
-        name:"name2",
+        name:"fkhadh",
         quantity:1,
         type:"breakfast",
         description:"description",
-        image:"image",
+        image:"fkhadh.jpg",
         price:20,
         country:"spain",
         livraison:true,

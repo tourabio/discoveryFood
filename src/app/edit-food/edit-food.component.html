@@ -66,17 +66,50 @@
                         <option value=""></option>
                         <option value="france">france</option>
                         <option value="spain">spain</option>
+                        <option value="poland">poland</option>
                         <option value="germany">germany</option>
+                        <option value="italy">italy</option>
+                        <option value="japan">japan</option>
                     </select>
                 </div>
             
                 <div class="alert alert-danger" *ngIf="c.touched && c.invalid">
                     *Country is required!
                 </div>
-        
+
+                <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image" (change)="onFileSelected($event)">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+                
 
 
 
+
+
+
+
+                <div class="form-group">
+                    <label>Delivery : </label>
+                
+                        <select name="livraison" [(ngModel)]="food.livraison" class="form-control" #l="ngModel" required>
+                            <option value=""></option>
+                            <option value="true">Available</option>
+                            <option value="false">Unavailable</option>
+                        </select>
+                    </div>
+                
+                    <div class="alert alert-danger" *ngIf="l.touched && l.invalid">
+                        *Delivery is required!
+                    </div>
+               
 
 
     <button (click)="addFood()"class="btn btn-success"[disabled]="f.invalid || p.value<0">save</button>

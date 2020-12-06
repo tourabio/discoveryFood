@@ -1,5 +1,5 @@
       
-  <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+  <a href="#"><img class="card-img-top" src="/assets/images/{{food.image}}" alt="" height="200" width="300"></a>
       <div class="card-body">
         <h4 class="card-title">    
             <a href="#">{{food.name}}</a>  
@@ -14,16 +14,15 @@
       <p class="card-text"> 
         Country : {{food.country}} 
       </p>
-      
       <p class="card-text"> 
-        Quantity : {{food.quantity}} 
+        Delivery : {{food.livraison}} 
       </p>
       <h5>${{food.price}}</h5>
       </div>
       <div class="card-footer">
         <small class="text-muted">
           <a id="thumbsUp" (click)="sendNotifIncrementLike()"><fa-icon [icon]="FathumbsUp" ></fa-icon> {{food.like}}</a>
-          <a id="shoppingbasket" (click)="buy()"><fa-icon [icon]="shoppingbasket" ></fa-icon></a>
+          <a id="shoppingbasket" (click)="buy()"><fa-icon [icon]="shoppingbasket" ></fa-icon>{{food.quantity}}</a>
           <a id="edit" *ngIf="isAuth" [routerLink]=" ['edit',food.id] "><fa-icon [icon]="edit" ></fa-icon></a>
           <a id="delete"*ngIf="isAuth" (click)="deleteFood()"><fa-icon [icon]="delete" ></fa-icon></a>
         </small>

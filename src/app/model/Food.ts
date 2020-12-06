@@ -13,6 +13,6 @@ export class Food{
     constructor() {
         this.quantity = 1;
         this.like = 0;
-        this.image = "";
+        this.image = "default.jpg";
     };
 }

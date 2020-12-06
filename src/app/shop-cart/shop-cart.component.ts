@@ -58,7 +58,7 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
     
 
     $('#table tr').each(function(){
-      $(this).children('td').eq(4).remove();
+      $(this).children('td').eq(5).remove();
   });
 
     var element = document.getElementById("content");

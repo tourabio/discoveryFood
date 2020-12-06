@@ -12,9 +12,10 @@ export class EditFoodComponent implements OnInit {
   actionName: string
   food: Food;
   id: number;
+  fileName:string;
   constructor(private foodService: FoodService,
     private router: Router,
-    private serviceRoute: ActivatedRoute) { }
+    private serviceRoute: ActivatedRoute    ) { }
 
   ngOnInit(): void {
     this.food = new Food();
@@ -28,6 +29,7 @@ export class EditFoodComponent implements OnInit {
     console.log(this.food);
   }
   addFood() {
+    this.food.image = this.fileName;
     if(this.id){
       this.foodService.updateFood(this.food);
     }else{
@@ -35,7 +37,10 @@ export class EditFoodComponent implements OnInit {
     this.foodService.addFood(this.food);
     
   }
-  this.router.navigate(['foods']);
+  //this.router.navigate(['foods']);
+  }
+  onFileSelected(event){
+    this.fileName = event.target.files[0].name;
   }
 
 }
