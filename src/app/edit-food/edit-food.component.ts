@@ -29,15 +29,23 @@ export class EditFoodComponent implements OnInit {
     console.log(this.food);
   }
   addFood() {
-    this.food.image = this.fileName;
+    
     if(this.id){
+      if(this.fileName){
+        this.food.image = this.fileName;
+      }
       this.foodService.updateFood(this.food);
     }else{
-    console.log(this.food);
+            if(this.fileName){
+            this.food.image = this.fileName;}
+            else{
+              this.food.image = "default.jpg";
+            }
+      console.log(this.food);
     this.foodService.addFood(this.food);
     
   }
-  //this.router.navigate(['foods']);
+ // this.router.navigate(['foods']);
   }
   onFileSelected(event){
     this.fileName = event.target.files[0].name;

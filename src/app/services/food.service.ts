@@ -38,7 +38,7 @@ export class FoodService {
         image:"fkhadh.jpg",
         price:20,
         country:"spain",
-        livraison:true,
+        livraison:false,
         like:4
       }
     ];

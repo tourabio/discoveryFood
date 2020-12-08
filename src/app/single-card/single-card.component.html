@@ -15,7 +15,7 @@
         Country : {{food.country}} 
       </p>
       <p class="card-text"> 
-        Delivery : {{food.livraison}} 
+        Delivery :  <span id="truck" [ngStyle]= " {'color':getColor()} ">  <fa-icon [icon]="Fatruck"></fa-icon> </span>
       </p>
       <h5>${{food.price}}</h5>
       </div>
