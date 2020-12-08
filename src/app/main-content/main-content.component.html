@@ -15,7 +15,7 @@
         <app-carousel></app-carousel>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let food of foods| paginate: { itemsPerPage: 6, currentPage: p };let i=index">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let food of foods| paginate: { itemsPerPage: 3, currentPage: p };let i=index">
                 <div class="card h-100">
                 
             <app-single-card [food]="food"

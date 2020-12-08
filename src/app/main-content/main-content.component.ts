@@ -23,7 +23,11 @@ export class MainContentComponent implements OnInit {
         this.foods = foods;
       }
     );
-    this.foodService.emitFoodSubject();
+    console.log("foods = ",this.foods);
+
+
+
+    //this.foodService.emitFoodSubject();
   }
 
   incrementLike(pos:number){

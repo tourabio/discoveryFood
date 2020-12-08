@@ -1,0 +1,45 @@
+{
+  "foods": [
+    {
+      "id":1,
+      "name":"brik",
+      "quantity":1,
+      "type":"lunch",
+      "description":"description",
+      "image":"brik.jpg",
+      "price":20,
+      "country":"france",
+      "livraison":true,
+      "like":8
+    },
+    {
+      "id":2,
+      "name":"fkhadh",
+      "quantity":1,
+      "type":"breakfast",
+      "description":"description",
+      "image":"fkhadh.jpg",
+      "price":20,
+      "country":"spain",
+      "livraison":false,
+      "like":6
+    },
+
+    {
+      "id":3,
+      "name":"riz",
+      "quantity":1,
+      "type":"breakfast",
+      "description":"description",
+      "image":"riz.jpg",
+      "price":40,
+      "country":"japan",
+      "livraison":true,
+      "like":7
+    }
+
+
+
+
+  ]
+}

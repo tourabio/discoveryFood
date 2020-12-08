@@ -1,49 +1,39 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Food } from '../model/Food';
+import { DatacommunicationService } from './datacommunication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
+  baseURL ="http://localhost:3000/foods/";
+
   foodSubject = new Subject<any[]>();
   private listFood:Food[];
+  
 
-
-  constructor() {
+  constructor(private dbCom:DatacommunicationService) {
     this.loadFoods();
     
    }
 
    loadFoods(){
-    this.listFood = [
-      {
-        id:1,
-        name:"brik",
-        quantity:1,
-        type:"lunch",
-        description:"description",
-        image:"brik.jpg",
-        price:20,
-        country:"france",
-        livraison:true,
-        like:4
+    const myObserver = {
+      next: x => {this.listFood = x;},
+      error: err => console.error('Observer got an error: ' + err),
+      complete: () => {
+        console.log("listFood : ",this.listFood);
+        this.emitFoodSubject();
       },
-      {
-        id:2,
-        name:"fkhadh",
-        quantity:1,
-        type:"breakfast",
-        description:"description",
-        image:"fkhadh.jpg",
-        price:20,
-        country:"spain",
-        livraison:false,
-        like:4
-      }
-    ];
+    };
 
-    this.emitFoodSubject();
+     this.dbCom.getAllFoods().subscribe(
+      myObserver  
+     );
+   
+    
    }
 
 
@@ -54,6 +44,7 @@ export class FoodService {
 
 
    emitFoodSubject(){
+    console.log("listFood D : ", this.listFood);
     this.foodSubject.next(this.listFood.slice());
   }
 
