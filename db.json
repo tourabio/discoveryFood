@@ -38,7 +38,7 @@
     },
     {
       "quantity": 1,
-      "like": 1,
+      "like": 2,
       "image": "tabouna.jpg",
       "name": "tabouna",
       "type": "lunch",
@@ -50,11 +50,11 @@
     },
     {
       "quantity": 1,
-      "like": 3,
+      "like": 5,
       "image": "lebanese.jpg",
-      "name": "riz",
+      "name": "lebanone",
       "type": "lunch",
-      "description": "fhfgh",
+      "description": "aaaaa",
       "price": 230,
       "country": "japan",
       "livraison": "true",
