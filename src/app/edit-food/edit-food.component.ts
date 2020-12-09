@@ -45,8 +45,10 @@ export class EditFoodComponent implements OnInit {
     this.foodService.addFood(this.food);
     
   }
- // this.router.navigate(['foods']);
+  this.router.navigate(['foods']);
   }
+
+  
   onFileSelected(event){
     this.fileName = event.target.files[0].name;
   }

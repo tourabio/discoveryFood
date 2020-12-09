@@ -14,6 +14,7 @@ import { ShopCartService } from '../services/shopCart.service';
 export class SingleCardComponent implements OnInit {
   @Input() food:Food;
   @Input() position:number;
+  @Input() identifiant:number;
   @Output() notifLike = new EventEmitter<number>();
   @Output() notifdelete = new EventEmitter<number>();
   authSubscription : Subscription;
@@ -36,8 +37,6 @@ export class SingleCardComponent implements OnInit {
       }
     );
     this.authService.emitAuthSubject();
-
-
 
   }
   sendNotifIncrementLike(){

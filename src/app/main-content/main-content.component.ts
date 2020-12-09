@@ -23,6 +23,7 @@ export class MainContentComponent implements OnInit {
         this.foods = foods;
       }
     );
+    this.foodService.emitFoodSubject();
     console.log("foods = ",this.foods);
 
 

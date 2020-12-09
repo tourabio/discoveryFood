@@ -27,12 +27,13 @@ export class SideBarComponent implements OnInit {
 
 
   searchByType(type:string){
+    
     console.log(type);
     if(type=="all"){
       this.resetSearch();
     }else{
     this.foods = this.searchService.getFoods(this.foodService.affAllFoods(),"type",type);
-    console.log(this.foods);
+    console.log("search result : ", this.foods);
     this.foodService.setFoods(this.foods);
   }
 }

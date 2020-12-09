@@ -19,7 +19,7 @@
                 <div class="card h-100">
                 
             <app-single-card [food]="food"
-            [position]=i  (notifdelete)="deleteFood($event)" (notifLike)="incrementLike($event)">
+            [position]=i [identifiant]="food.id" (notifdelete)="deleteFood($event)" (notifLike)="incrementLike($event)">
           </app-single-card>
                 </div>
             </div>
