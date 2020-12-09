@@ -27,7 +27,6 @@ export class SideBarComponent implements OnInit {
 
 
   searchByType(type:string){
-    
     console.log(type);
     if(type=="all"){
       this.resetSearch();

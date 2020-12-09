@@ -37,10 +37,9 @@ export class SingleCardComponent implements OnInit {
       }
     );
     this.authService.emitAuthSubject();
-
   }
   sendNotifIncrementLike(){
-    this.notifLike.emit(this.position);
+    this.notifLike.emit(this.identifiant);
   }
   buy(){
     this.shopCartService.addToCart(this.food);

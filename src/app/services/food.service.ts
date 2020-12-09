@@ -12,13 +12,10 @@ export class FoodService {
   foodSubject = new Subject<any[]>();
   private listFood:Food[];
   
-  
 
   constructor(private dbCom:DatacommunicationService) {
 
     this.loadFoods();
-    console.log("listFoodInitial : ",this.listFood);
-
    }
 
    loadFoods(){
@@ -52,13 +49,33 @@ export class FoodService {
 
 
   affAllFoods(){   
-    //this.loadFoods(); to fix next time
+    //this.loadFoods();// to fix next time
     return this.listFood;
   }
 
-  incrementLike(i:number){
-    this.listFood[i].like++;
-    this.emitFoodSubject();
+  incrementLike(id:number){
+    console.log("id : ",id);
+    var food = this.listFood.find(x=>x.id===id);
+    food.like++;
+    console.log
+    this.dbCom.putFood(food,id.toString()).subscribe(
+      {
+        next: x => {},
+        error: err => console.error('Observer got an error: ' + err),
+        complete: () => {
+          console.log("editedFoodLike : ",food);
+          this.emitFoodSubject();
+        },
+      }
+
+
+      );
+
+
+
+
+
+    //this.emitFoodSubject();
   }
   incrementQuantity(i:number){
     this.listFood[i].quantity++;
@@ -72,19 +89,20 @@ export class FoodService {
     });
     this.emitFoodSubject();
   }
+
+
+
   deleteFood(i:number){
-      
-    
- this.dbCom.deleteFood(this.listFood[i].id.toString()).subscribe(
-  {
-    next: x => {this.listFood = this.listFood.filter(emp=>emp.id!=this.listFood[i].id)},
-    error: err => console.error('Observer got an error: ' + err),
-    complete: () => {
-      console.log("listFood : ",this.listFood);
-      this.emitFoodSubject();
-    },
-  }
- );
+      this.dbCom.deleteFood(this.listFood[i].id.toString()).subscribe(
+      {
+        next: x => {this.listFood = this.listFood.filter(emp=>emp.id!=this.listFood[i].id)},
+        error: err => console.error('Observer got an error: ' + err),
+        complete: () => {
+          console.log("listFood : ",this.listFood);
+          this.emitFoodSubject();
+        },
+      }
+    );
    
   }
 
@@ -92,8 +110,6 @@ export class FoodService {
 
   addFood(food:Food){
     food.like = 0;
-   // food.id = this.listFood[this.listFood.length-1].id+1 ;
-   // this.listFood.push(food);
    this.dbCom.addFood(food).subscribe(
     {
       next: x => { this.listFood = [food,...this.listFood]},
@@ -104,11 +120,6 @@ export class FoodService {
       },
     }
    );
-
-
-
-
-   // this.emitFoodSubject();
   } 
 
 
@@ -118,16 +129,15 @@ export class FoodService {
 
   updateFood(editedfood:Food){
     this.dbCom.putFood(editedfood,editedfood.id.toString()).subscribe(
-    );
-
-
-   /* this.listFood.forEach(food => {
-      if(food.id == editedfood.id){
-        food = editedfood;
+      {
+        next: x => {},
+        error: err => console.error('Observer got an error: ' + err),
+        complete: () => {
+          console.log("editedFood : ",editedfood);
+          this.emitFoodSubject();
+        },
       }
-    });*/
-
-
+    );
   }
 
   getFoodById(index:number){

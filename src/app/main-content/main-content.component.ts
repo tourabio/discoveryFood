@@ -24,15 +24,10 @@ export class MainContentComponent implements OnInit {
       }
     );
     this.foodService.emitFoodSubject();
-    console.log("foods = ",this.foods);
-
-
-
-    //this.foodService.emitFoodSubject();
   }
 
-  incrementLike(pos:number){
-    this.foodService.incrementLike(pos);
+  incrementLike(id:number){
+    this.foodService.incrementLike(id);
   }
 
   deleteFood(pos:number){
