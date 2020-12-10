@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Food } from '../model/Food';
-import { FoodService } from '../services/food.service';
+import { FoodService } from '../shared/food.service';
 
 @Component({
   selector: 'app-edit-food',

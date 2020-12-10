@@ -1,11 +1,11 @@
 import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ShopCartService } from '../services/shopCart.service';
+import { ShopCartService } from '../shared/shopCart.service';
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 import { Food } from '../model/Food';
-import { FoodService } from '../services/food.service';
+import { FoodService } from '../shared/food.service';
 
 @Component({
   selector: 'app-shop-cart',

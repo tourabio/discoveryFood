@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { ShopCartService } from '../services/shopCart.service';
+import { AuthService } from '../shared/auth.service';
+import { ShopCartService } from '../shared/shopCart.service';
 
 @Component({
   selector: 'app-navigation',

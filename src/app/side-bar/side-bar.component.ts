@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from '../model/Food';
-import { FoodService } from '../services/food.service';
-import { SearchService } from '../services/search.service';
+import { FoodService } from '../shared/food.service';
+import { SearchService } from '../shared/search.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -31,6 +31,8 @@ export class SideBarComponent implements OnInit {
     if(type=="all"){
       this.resetSearch();
     }else{
+     
+     
     this.foods = this.searchService.getFoods(this.foodService.affAllFoods(),"type",type);
     console.log("search result : ", this.foods);
     this.foodService.setFoods(this.foods);

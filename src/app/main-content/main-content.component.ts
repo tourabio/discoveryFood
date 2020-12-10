@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { FoodService } from '../services/food.service';
+import { FoodService } from '../shared/food.service';
 
 @Component({
   selector: 'app-main-content',
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.css']
 })
-export class MainContentComponent implements OnInit {
+export class MainContentComponent implements OnInit,OnDestroy {
   p: number 
   foodSubscription : Subscription ;
   foods:any[];
   constructor(private foodService :FoodService) { }
   
-
- 
-
   ngOnInit(): void {
     this.p = 1;
     this.foodSubscription = this.foodService.foodSubject.subscribe(
@@ -23,6 +20,10 @@ export class MainContentComponent implements OnInit {
         this.foods = foods;
       }
     );
+      console.log("this.foods : ",this.foods);
+
+
+
     this.foodService.emitFoodSubject();
   }
 
@@ -33,5 +34,13 @@ export class MainContentComponent implements OnInit {
   deleteFood(pos:number){
     this.foodService.deleteFood(pos);
   }
+
+  ngOnDestroy() {
+    this.foodSubscription.unsubscribe();
+  }
+
+
+
+
 
 }

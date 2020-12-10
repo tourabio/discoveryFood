@@ -2,9 +2,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faEdit, faShoppingBasket, faThumbsUp, faTrashAlt, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Food } from '../model/Food';
-import { AuthService } from '../services/auth.service';
-import { FoodService } from '../services/food.service';
-import { ShopCartService } from '../services/shopCart.service';
+import { AuthService } from '../shared/auth.service';
+import { FoodService } from '../shared/food.service';
+import { ShopCartService } from '../shared/shopCart.service';
 
 @Component({
   selector: 'app-single-card',

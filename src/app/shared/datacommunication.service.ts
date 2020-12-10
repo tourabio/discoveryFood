@@ -7,9 +7,11 @@ import { Food } from '../model/Food';
 })
 export class DatacommunicationService {
   baseURL ="http://localhost:3000/foods/";
+  
   constructor(private http: HttpClient) { }
 
   getAllFoods(){
+    
     return this.http.get<Food[]>(this.baseURL);
   }
 

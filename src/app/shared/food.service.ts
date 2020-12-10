@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Food } from '../model/Food';
@@ -11,7 +10,6 @@ export class FoodService {
 
   foodSubject = new Subject<any[]>();
   private listFood:Food[];
-  
 
   constructor(private dbCom:DatacommunicationService) {
 
@@ -27,18 +25,11 @@ export class FoodService {
         this.emitFoodSubject();
       },
     };
-
-     this.dbCom.getAllFoods().subscribe(
-      myObserver  
-     );
-    
+      this.dbCom.getAllFoods().subscribe(
+        myObserver
+      );
+     
    }
-
-
-
-
-
-
 
 
    emitFoodSubject(){
@@ -49,7 +40,7 @@ export class FoodService {
 
 
   affAllFoods(){   
-    //this.loadFoods();// to fix next time
+   // this.loadFoods();// to fix next time
     return this.listFood;
   }
 
@@ -70,12 +61,6 @@ export class FoodService {
 
 
       );
-
-
-
-
-
-    //this.emitFoodSubject();
   }
   incrementQuantity(i:number){
     this.listFood[i].quantity++;
@@ -121,11 +106,6 @@ export class FoodService {
     }
    );
   } 
-
-
-
-
-
 
   updateFood(editedfood:Food){
     this.dbCom.putFood(editedfood,editedfood.id.toString()).subscribe(

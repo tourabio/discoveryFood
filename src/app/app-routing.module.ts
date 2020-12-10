@@ -5,7 +5,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { AboutComponent } from './about/about.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { AuthComponent } from './auth/auth.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './shared/auth-guard.service';
 import { EditFoodComponent } from './edit-food/edit-food.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
