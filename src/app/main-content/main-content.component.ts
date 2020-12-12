@@ -9,12 +9,15 @@ import { FoodService } from '../shared/food.service';
 })
 export class MainContentComponent implements OnInit,OnDestroy {
   p: number 
+  //it's highly required to save  the subscription into an object Subscription (import it from rxjs/Subscription)
+  //so you can unsubscribe when the component is destroyed
   foodSubscription : Subscription ;
   foods:any[];
   constructor(private foodService :FoodService) { }
   
   ngOnInit(): void {
     this.p = 1;
+
     this.foodSubscription = this.foodService.foodSubject.subscribe(
       (foods:any[])=>{
         this.foods = foods;
@@ -23,7 +26,7 @@ export class MainContentComponent implements OnInit,OnDestroy {
       console.log("this.foods : ",this.foods);
 
 
-
+      
     this.foodService.emitFoodSubject();
   }
 

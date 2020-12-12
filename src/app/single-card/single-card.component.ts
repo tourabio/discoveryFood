@@ -31,6 +31,8 @@ export class SingleCardComponent implements OnInit {
   
   
   ngOnInit(): void {
+        //subscribe to the subscribtion of the authentification service to see if it is admin or a simple user   
+        //if it is admin he will have an additional options such as edit , delete,or add a new food !
     this.authSubscription = this.authService.authSubject.subscribe(
       (auth)=>{
         this.isAuth = auth;

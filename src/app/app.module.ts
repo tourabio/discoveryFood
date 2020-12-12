@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MainContentComponent } from './main-content/main-content.component';
@@ -43,7 +42,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

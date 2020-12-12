@@ -18,6 +18,9 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  //search by country and by type use the same search function but with different criteria 
+
+
   searchByCountry(country:string){
     console.log(country);
     this.foods = this.searchService.getFoods(this.foodService.affAllFoods(),"country",country);
@@ -31,8 +34,6 @@ export class SideBarComponent implements OnInit {
     if(type=="all"){
       this.resetSearch();
     }else{
-     
-     
     this.foods = this.searchService.getFoods(this.foodService.affAllFoods(),"type",type);
     console.log("search result : ", this.foods);
     this.foodService.setFoods(this.foods);
@@ -41,7 +42,7 @@ export class SideBarComponent implements OnInit {
 
 
 
-
+  //if button reset or option all clicked
 
   resetSearch(){
     this.foodService.loadFoods();

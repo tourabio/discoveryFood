@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
   authSubject = new Subject<boolean>();
-
+//using isAuth in subject to be up to date with the other components
   constructor() { }
   isAuth = false;
 

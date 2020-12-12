@@ -30,7 +30,7 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
     this.shopCartService.emitShopCartSubject();
 
     this.totalPrice = 0;
-
+      // calculate the total price of the shop-cart
     this.foods.forEach(food => {
       this.totalPrice += food.price*food.quantity ;
     });
@@ -38,11 +38,12 @@ export class ShopCartComponent implements OnInit,OnDestroy  {
   }
 
   ngOnDestroy(){
+    this.shopSubscription.unsubscribe();
   }
 
 
-  
-  removeFromShop(i:number){
+  //we should decrease the total price after removing a food
+   removeFromShop(i:number){
     this.totalPrice-=this.foods[i].quantity*this.foods[i].price;
     this.foodService.resetQuantity(this.foods[i].id);
     this.shopCartService.removeFood(i);

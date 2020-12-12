@@ -8,6 +8,15 @@ import { AuthService } from '../shared/auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
+
+
+
+/*
+ building a reactive form for the authentification form
+*/ 
+
+
+
 export class AuthComponent implements OnInit {
   authStatus: boolean;
   correctFields:boolean;
@@ -40,12 +49,6 @@ export class AuthComponent implements OnInit {
     this.correctFields = false;
   }
   }
-
- /* onSignOut() {
-    this.authService.signOut();
-    this.authStatus = this.authService.isAuth;
-  }*/
-
   get username(){
     return this.registerForm.get('username');
   }

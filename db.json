@@ -22,7 +22,7 @@
       "price": 20,
       "country": "spain",
       "livraison": false,
-      "like": 19
+      "like": 22
     },
     {
       "id": 3,
@@ -34,11 +34,11 @@
       "price": 40,
       "country": "japan",
       "livraison": true,
-      "like": 10
+      "like": 11
     },
     {
       "quantity": 1,
-      "like": 2,
+      "like": 5,
       "image": "tabouna.jpg",
       "name": "tabouna",
       "type": "lunch",
@@ -50,7 +50,7 @@
     },
     {
       "quantity": 1,
-      "like": 5,
+      "like": 9,
       "image": "lebanese.jpg",
       "name": "lebanone",
       "type": "lunch",

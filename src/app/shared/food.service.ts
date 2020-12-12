@@ -7,15 +7,15 @@ import { DatacommunicationService } from './datacommunication.service';
   providedIn: 'root'
 })
 export class FoodService {
-
+//there is an abstraction beteween the service and the components, where the data are up to date because of Subject.
   foodSubject = new Subject<any[]>();
   private listFood:Food[];
-
+//DatacommunicationService is the service in which we communicate with the data base
   constructor(private dbCom:DatacommunicationService) {
 
     this.loadFoods();
    }
-
+//emitFoodSubject when the data are completely loaded by the observer 
    loadFoods(){
     const myObserver = {
       next: x => {this.listFood = x;},
@@ -40,8 +40,7 @@ export class FoodService {
 
 
   affAllFoods(){   
-   // this.loadFoods();// to fix next time
-    return this.listFood;
+   return this.listFood;
   }
 
   incrementLike(id:number){
@@ -62,12 +61,13 @@ export class FoodService {
 
       );
   }
+  //the field quantity in food is just for the client side of the app and it will never be saved in the database(allways =1)
   incrementQuantity(i:number){
     this.listFood[i].quantity++;
     this.emitFoodSubject();
   }
 
-  
+  //used when the client click the button remove on the cart page
   resetQuantity(id:number){
     this.listFood.forEach(food => {
       if(food.id == id){food.quantity = 1;}
@@ -123,6 +123,8 @@ export class FoodService {
   getFoodById(index:number){
     return this.listFood.find(x=>x.id===index);
 }
+
+//used in the search work
 setFoods(foods:Food[]){
   this.listFood = foods;
   this.emitFoodSubject();

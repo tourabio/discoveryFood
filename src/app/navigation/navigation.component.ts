@@ -33,7 +33,7 @@ export class NavigationComponent implements OnInit {
     this.shopCartService.emitShopCartSubject();
 
 
-
+    //subscribe to the subscribtion of the authentification service to see if it is admin or a simple user   
     this.authSubscription = this.authService.authSubject.subscribe(
       (auth)=>{
         this.isAuth = auth;
@@ -43,6 +43,8 @@ export class NavigationComponent implements OnInit {
     this.authService.emitAuthSubject();
     
   }
+
+
   logOut(){
     this.authService.signOut();
     this.router.navigate(['foods']);
