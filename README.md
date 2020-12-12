@@ -1,15 +1,28 @@
 # Discovery Food
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+This is an Angular 9 project which is about a big restaurant contains multiple sections. In each section we have a small restaurant with tasty foods represents a particular country.
 
-## Development server
+## Get started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Clone the repo
 
-## Code scaffolding
+```shell
+git clone https://github.com/tourabio/discoveryFood.git
+cd discoveryFood
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install npm packages
 
+Install the `npm` packages described in the `package.json` and verify that it works:
+
+```shell
+npm install
+json-server --watch db.json
+```
+
+json-server --watch db.json command watches for changes to the source files (db.json) , and runs `json-server` on port `3000`.
+
+Shut it down manually with `Ctrl-C`.
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
