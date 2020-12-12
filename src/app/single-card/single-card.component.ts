@@ -21,6 +21,7 @@ export class SingleCardComponent implements OnInit {
   isAuth:boolean;
   FathumbsUp = faThumbsUp;
   Fatruck = faTruck;
+  likeClicked:boolean;
 
   shoppingbasket = faShoppingBasket;
   edit = faEdit;
@@ -31,6 +32,7 @@ export class SingleCardComponent implements OnInit {
   
   
   ngOnInit(): void {
+    this.likeClicked=false;
         //subscribe to the subscribtion of the authentification service to see if it is admin or a simple user   
         //if it is admin he will have an additional options such as edit , delete,or add a new food !
     this.authSubscription = this.authService.authSubject.subscribe(
@@ -41,7 +43,11 @@ export class SingleCardComponent implements OnInit {
     this.authService.emitAuthSubject();
   }
   sendNotifIncrementLike(){
+    //deny the multiple click of like button
+    if(!this.likeClicked){
     this.notifLike.emit(this.identifiant);
+    this.likeClicked=true;
+  }
   }
   buy(){
     this.shopCartService.addToCart(this.food);
