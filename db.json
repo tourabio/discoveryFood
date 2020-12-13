@@ -1,30 +1,6 @@
 {
   "foods": [
     {
-      "id": 1,
-      "name": "brik",
-      "quantity": 1,
-      "type": "lunch",
-      "description": "description",
-      "image": "brik.jpg",
-      "price": 20,
-      "country": "france",
-      "livraison": true,
-      "like": 22
-    },
-    {
-      "id": 2,
-      "name": "fkhadh",
-      "quantity": 1,
-      "type": "breakfast",
-      "description": "éééé",
-      "image": "fkhadh.jpg",
-      "price": 20,
-      "country": "spain",
-      "livraison": false,
-      "like": 23
-    },
-    {
       "id": 3,
       "name": "riz",
       "quantity": 1,
@@ -45,7 +21,7 @@
       "description": "qsddsq",
       "price": 230,
       "country": "france",
-      "livraison": "true",
+      "livraison": false,
       "id": 4
     },
     {
@@ -57,8 +33,20 @@
       "description": "aaaaa",
       "price": 230,
       "country": "japan",
-      "livraison": "true",
+      "livraison": false,
       "id": 5
+    },
+    {
+      "quantity": 1,
+      "like": 0,
+      "image": "spanich_chiken.jpg",
+      "name": "spanish_chiken",
+      "type": "lunch",
+      "description": "azeaze",
+      "price": 230,
+      "country": "spain",
+      "livraison": true,
+      "id": 6
     }
   ]
 }

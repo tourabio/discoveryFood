@@ -34,8 +34,8 @@ export class MainContentComponent implements OnInit,OnDestroy {
     this.foodService.incrementLike(id);
   }
 
-  deleteFood(pos:number){
-    this.foodService.deleteFood(pos);
+  deleteFood(id:number){
+    this.foodService.deleteFood(id);
   }
 
   ngOnDestroy() {

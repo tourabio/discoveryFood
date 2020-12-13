@@ -78,9 +78,10 @@ export class FoodService {
 
 
   deleteFood(i:number){
-      this.dbCom.deleteFood(this.listFood[i].id.toString()).subscribe(
+    let food = this.listFood.find(x=>x.id===i);
+      this.dbCom.deleteFood(food.id.toString()).subscribe(
       {
-        next: x => {this.listFood = this.listFood.filter(emp=>emp.id!=this.listFood[i].id)},
+        next: x => {this.listFood = this.listFood.filter(emp=>emp.id!=food.id)},
         error: err => console.error('Observer got an error: ' + err),
         complete: () => {
           console.log("listFood : ",this.listFood);

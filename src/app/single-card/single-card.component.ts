@@ -53,11 +53,12 @@ export class SingleCardComponent implements OnInit {
     this.shopCartService.addToCart(this.food);
   }
   deleteFood(){
-    this.notifdelete.emit(this.position);
+    this.notifdelete.emit(this.identifiant);
   }
 
   getColor(){
-    if(this.food.livraison)return "green";
-    return "red";
+    console.log(this.food.livraison);
+    if(this.food.livraison==true)return "green";
+    else return "red";
   }
 }
